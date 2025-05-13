@@ -1,10 +1,953 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>SunnySide</title>
-  </head>
-  <body>
-    <h1>Welcome to SunnySide Window Cleaning</h1>
-    <p>Site is working!</p>
-  </body>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Side Window Washing | Professional Cleaning Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="logo.png">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        secondary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .dark .bg-glass {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .before-after-img {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .before-after-img::before {
+
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        .before-after-img::after {
+
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        .before-after-img img {
+            transition: transform 0.5s ease;
+        }
+
+        .before-after-img:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-glass shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center space-x-2">
+                        <img src="logo.png" alt="Sunny Logo" class="w-20 h-20 object-contain" />
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="p-2">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-90 backdrop-blur-sm">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-white p-2">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="#home" class="text-white text-2xl font-medium">Home</a>
+            <a href="#about" class="text-white text-2xl font-medium">About</a>
+            <a href="#contact" class="text-white text-2xl font-medium">Contact</a>
+            <button id="theme-toggle-mobile" class="p-4 bg-primary-600 rounded-full">
+                <i class="fas fa-moon dark:hidden text-white"></i>
+                <i class="fas fa-sun hidden dark:inline text-white"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="pt-16">
+        <!-- Home Page -->
+        <section id="home">
+            <!-- Hero Section -->
+            <section class="relative bg-cover bg-center h-[90vh]"
+                style="background-image: url('/croppedwindowwashing.png');">
+                <div class="relative max-w-7xl mx-auto px-4 py-20 flex items-center justify-center">
+                    <!-- full‐screen, center both axes -->
+                    <div class="grid justify-items-center items-start px-4 h-[300px]">
+                        <div class="max-w-2xl text-center space-y-6">
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+                                Let the Sunshine In<br>
+                                <span class="text-primary-300">Professional Window Cleaning</span>
+                            </h1>
+                            <p class="text-lg text-primary-100">
+                                Crystal clear windows for homes and businesses throughout the area.
+                                We use eco-friendly products and professional techniques to leave
+                                your windows sparkling clean and streak-free.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="#contact"
+                                    class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition duration-300 shadow-lg">
+                                    Request a Free Estimate
+                                </a>
+                                <a href="tel:+18133124071"
+                                    class="px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium rounded-lg transition duration-300">
+                                    <i class="fas fa-phone mr-2"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- Services Section -->
+            <div class="max-w-7xl mx-auto mt-24">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Our Services</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="services-data">
+                        <div
+                            class="service-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg inline-flex mb-4">
+                                <i class="fas fa-home text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Residential Window
+                                Washing</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                Perfect for homes of all sizes, making your windows crystal clear while ensuring safety
+                                and care for your property.
+                            </p>
+                            <a href="#contact"
+                                class="text-primary-600 dark:text-primary-400 font-medium inline-flex items-center">
+                                Get a Quote
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="services-data">
+                        <div
+                            class="service-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg inline-flex mb-4">
+                                <i class="fas fa-building text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Commercial Window
+                                Cleaning</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                Professional cleaning services for offices, retail spaces, and commercial properties to
+                                enhance your business image.
+                            </p>
+                            <a href="#contact"
+                                class="text-primary-600 dark:text-primary-400 font-medium inline-flex items-center">
+                                Get a Quote
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="services-data">
+                        <div
+                            class="service-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg inline-flex mb-4">
+                                <i class="fas fa-window-maximize text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Screen Cleaning</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                Remove dust, dirt, and grime from your window screens to improve airflow and visibility
+                                through your windows.
+                            </p>
+                            <a href="#contact"
+                                class="text-primary-600 dark:text-primary-400 font-medium inline-flex items-center">
+                                Get a Quote
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="services-data">
+                        <div
+                            class="service-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg inline-flex mb-4">
+                                <i class="fas fa-tint text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Hard Water Stain
+                                Removal</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                Specialized treatment to remove stubborn hard water stains and mineral deposits from
+                                your glass surfaces.
+                            </p>
+                            <a href="#contact"
+                                class="text-primary-600 dark:text-primary-400 font-medium inline-flex items-center">
+                                Get a Quote
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="services-data">
+                        <div
+                            class="service-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg inline-flex mb-4">
+                                <i class="fas fa-water text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Gutter Cleaning</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                Keep your gutters clear and functional with our thorough cleaning service to prevent
+                                water damage.
+                            </p>
+                            <a href="#contact"
+                                class="text-primary-600 dark:text-primary-400 font-medium inline-flex items-center">
+                                Get a Quote
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="services-data">
+                        <div
+                            class="service-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg inline-flex mb-4">
+                                <i class="fas fa-solar-panel text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Solar Panel Cleaning
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                Improve your solar panel efficiency with professional cleaning that removes dirt, dust,
+                                and debris.
+                            </p>
+                            <a href="#contact"
+                                class="text-primary-600 dark:text-primary-400 font-medium inline-flex items-center">
+                                Get a Quote
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Section -->
+            <div class="max-w-7xl mx-auto mt-24">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Why Choose Sunny Side?
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col items-center text-center">
+                        <div class="p-4 bg-primary-100 dark:bg-primary-900 rounded-full mb-4">
+                            <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Streak-Free Guarantee</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            We use professional techniques to ensure your windows are left streak-free and spotless.
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col items-center text-center">
+                        <div class="p-4 bg-primary-100 dark:bg-primary-900 rounded-full mb-4">
+                            <i class="fas fa-leaf text-primary-600 dark:text-primary-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Eco-Friendly Products</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Our cleaning solutions are environmentally friendly and safe for your family and pets.
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col items-center text-center">
+                        <div class="p-4 bg-primary-100 dark:bg-primary-900 rounded-full mb-4">
+                            <i class="fas fa-shield-alt text-primary-600 dark:text-primary-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Fully Insured</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            You're protected with our comprehensive liability insurance coverage.
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col items-center text-center">
+                        <div class="p-4 bg-primary-100 dark:bg-primary-900 rounded-full mb-4">
+                            <i class="fas fa-dollar-sign text-primary-600 dark:text-primary-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Affordable Pricing</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Competitive rates with no hidden fees. We offer great value for professional service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="max-w-7xl mx-auto mt-24">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">What Our Customers Say
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Stacy L</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "David did an amazing job on our windows! They were overdue for a cleaning and we are
+                            thrilled with how clean they were when he was finished. He took him time and didn't leave
+                            until every window was just as he planned it to be. We definitely recommend him!"
+                        </p>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Alfonso C</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "I really didn’t know my windows were that dirty until they were clean by sunny shine window
+                            cleaning. The gentlemen were very professional explained what they were gonna do about how
+                            long it would take and completed the job in that timeframe. I would definitely be using
+                            their service again."
+                        </p>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Kanchan N</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "David did an excellent job cleaning my house windows and screens. He was professional,
+                            respectful, and made great use of time. The windows are spotless, and the attention to
+                            detail was impressive. Highly recommend his services!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="max-w-7xl mx-auto mt-24">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Our Work</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    <div class="before-after-img rounded-xl shadow-lg overflow-hidden relative">
+                        <img src="dirty1.jpg" alt="Before and after window cleaning" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="before-after-img rounded-xl shadow-lg overflow-hidden relative">
+                        <img src="clean1cropped.jpg" alt="Before and after window cleaning"
+                            class="w-full h-64 object-cover">
+                    </div>
+                    <div class="before-after-img rounded-xl shadow-lg overflow-hidden relative">
+                        <img src="dirty4.jpg" alt="Before and after window cleaning" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="before-after-img rounded-xl shadow-lg overflow-hidden relative">
+                        <img src="clean4.jpg" alt="Before and after window cleaning" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="before-after-img rounded-xl shadow-lg overflow-hidden relative">
+                        <img src="dirty3.jpg" alt="Before and after window cleaning" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="before-after-img rounded-xl shadow-lg overflow-hidden relative">
+                        <img src="croppedcleanwindow.jpg" alt="Before and after window cleaning"
+                            class="w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-[url('/bg.png')] bg-cover bg-center overflow-hidden py-16 md:py-24 px-4">
+            <div class="max-w-2xl mx-auto ">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white ">
+                    Our Work in Action
+                </h2>
+
+                <!-- 16:9 video wrapper using built-in aspect-ratio -->
+                <div class="relative aspect-video rounded-xl shadow-lg overflow-hidden border-4 border-white">
+                    <video class="absolute inset-0 w-full h-full object-cover object-[50%_20%]" controls>
+                        <!-- point to an MP4 (most browsers won’t play .mov) -->
+                        
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+    </section>
+    <!-- About Page -->
+    <section id="about" class="min-h-screen pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+                        Our Story
+                    </h2>
+                    <p class="text-lg mb-6 text-gray-600 dark:text-gray-300">
+                        Sunny Side Window Washing was born out of ambition, grit, and firsthand experience.
+                        After knocking on doors selling solar panels, I realized something: people don’t just want
+                        savings—they want their homes to shine. That’s when I saw the need for reliable, high-quality
+                        window cleaning done with integrity and care.
+
+                        I took the leap and started my own business, combining the hustle I learned in sales with a
+                        commitment to doing the job right. Today, Sunny Side Window Washing stands for more than just
+                        clean windows—it represents professionalism, hard work, and the belief that even small touches
+                        make a big difference.
+                    </p>
+
+                    <div class="bg-primary-50 dark:bg-gray-700 p-6 rounded-lg border-l-4 border-primary-600 mb-8">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Our Core Values</h3>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
+                                <span>Quality: We stand behind our work with a 100% satisfaction guarantee</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
+                                <span>Reliability: Always on time and dependable</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
+                                <span>Customer Service: Your satisfaction is our top priority</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
+                                <span>Sustainability: Eco-friendly products and practices</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact"
+                        class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition duration-300 inline-flex items-center">
+                        <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+                    </a>
+                </div>
+                <div>
+                    <div class="relative rounded-xl shadow-xl overflow-hidden">
+                        <img src="bossmandavid.jpg" alt="Our team" class="w-full h-auto object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-50">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 class="text-xl font-bold">Meet the Team</h3>
+                            <p>Experienced, professional, and committed to your satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 grid grid-cols-3 gap-4">
+                        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow text-center">
+                            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">2+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Years in Business</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow text-center">
+                            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">250+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Happy Clients</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow text-center">
+                            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">100%</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Satisfaction Guaranteed</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-white py-16 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center p-10"
+            style="border: 6px solid #5b21b6; border-radius: 2rem; ">
+
+            <!-- Image -->
+            <div>
+                <img src="bossmandavid.jpg" alt="Window Cleaning in Progress"
+                    class="w-full rounded-xl shadow-lg object-cover">
+            </div>
+
+            <!-- Text -->
+            <div>
+                <h2 class="text-4xl font-bold text-primary-600 mb-4">Our Mission</h2>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    At SunnyShine Window Cleaning, our mission is simple: deliver spotless, streak-free windows with
+                    integrity and care.
+                    We treat every home like our own and strive to exceed expectations by combining top-tier equipment,
+                    skilled technicians, and a commitment to customer satisfaction.
+                    From the first quote to the final inspection, we aim to bring clarity and shine to every pane we
+                    touch.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="min-h-screen pt-16 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="mt-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+                    Contact Us
+                </h2>
+                <p class="text-lg mb-12 text-center text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Ready to experience the Sunny Side difference? Fill out the form below to request
+                    a free, no-obligation estimate or to schedule a service. We'll get back to you within 24 hours.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Contact Form -->
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Send Us a Message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full
+                                    Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email"
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email
+                                        Address</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
+                                </div>
+                                <div>
+                                    <label for="phone"
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone
+                                        Number</label>
+                                    <input type="tel" id="phone" name="phone"
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="service"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service
+                                    Needed</label>
+                                <select id="service" name="service"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
+                                    <option value="">Select a service</option>
+                                    <option value="residential">Residential Window Washing</option>
+                                    <option value="commercial">Commercial Window Cleaning</option>
+                                    <option value="screen">Screen Cleaning</option>
+                                    <option value="hard-water">Hard Water Stain Removal</option>
+                                    <option value="gutter">Gutter Cleaning</option>
+                                    <option value="solar">Solar Panel Cleaning</option>
+                                    <option value="other">Other (describe below)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white"></textarea>
+                            </div>
+                            <div>
+                                <label for="photos"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload
+                                    Photos (for quotes)</label>
+                                <input type="file" id="photos" name="photos" multiple
+                                    class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-primary-100 dark:file:bg-primary-900 file:text-primary-700 dark:file:text-primary-400 hover:file:bg-primary-200 dark:hover:file:bg-primary-800">
+                                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Optional: Upload photos of
+                                    windows/areas needing service</p>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="consent" name="consent" type="checkbox" required
+                                    class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-gray-600 rounded dark:bg-gray-700">
+                                <label for="consent" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                                    I consent to receive communications from Sunny Side Window Washing
+                                </label>
+                            </div>
+                            <button type="submit"
+                                class="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
+                            <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Contact Information
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 pt-1">
+                                        <i
+                                            class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-base font-medium text-gray-900 dark:text-white">Address</h4>
+                                        <p class="text-gray-600 dark:text-gray-300">18341 Rossendale CT, Land O Lakes
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 pt-1">
+                                        <i class="fas fa-phone-alt text-primary-600 dark:text-primary-400 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-base font-medium text-gray-900 dark:text-white">Phone</h4>
+                                        <a href="tel:+18133124071"
+                                            class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">(813)
+                                            312-4071</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 pt-1">
+                                        <i class="fas fa-envelope text-primary-600 dark:text-primary-400 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-base font-medium text-gray-900 dark:text-white">Email</h4>
+                                        <a href="mailto:info@SunnySidewashing.com"
+                                            class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">info@SunnySidewashing.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 pt-1">
+                                        <i class="fas fa-clock text-primary-600 dark:text-primary-400 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-base font-medium text-gray-900 dark:text-white">Business
+                                            Hours</h4>
+                                        <p class="text-gray-600 dark:text-gray-300">Monday - Friday: 8:00 AM - 6:00
+                                            PM</p>
+                                        <p class="text-gray-600 dark:text-gray-300">Saturday: 9:00 AM - 3:00 PM</p>
+                                        <p class="text-gray-600 dark:text-gray-300">Sunday: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <h4 class="text-base font-medium mb-2 text-gray-900 dark:text-white">Emergency
+                                    Service?</h4>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">For emergency window cleaning needs
+                                    outside business hours, call or text:</p>
+                                <a href="tel:+18133124071"
+                                    class="px-6 py-2 border-2 border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-700 font-medium rounded-lg transition duration-300 inline-flex items-center">
+                                    <i class="fas fa-phone-alt mr-2"></i> (813) 312-4071
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="rounded-xl shadow-lg overflow-hidden">
+                            <iframe
+                                src="https://www.google.co.uk/maps/place/Land+O'+Lakes,+FL/@28.2142473,-82.4893913,13z/data=!3m1!4b1!4m6!3m5!1s0x88c2bb2de32d3337:0x8c723509b9335acd!8m2!3d28.2188992!4d-82.4575938!16s%2Fm%2F01z_468?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D"
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="dark:filter dark:brightness-90 dark:contrast-110">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center text-white font-bold text-xl mb-4">
+                        <i class="fas fa-sparkles mr-2"></i>
+                        Sunny Side
+                    </a>
+                    <p class="text-gray-300">
+                        Professional window cleaning services for homes and businesses in the area since 2010.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#contact"
+                                class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Services</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Testimonials</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Residential
+                                Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Commercial
+                                Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Screen
+                                Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Gutter
+                                Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300">Solar Panel
+                                Cleaning</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ready for a Shine?</h3>
+                    <p class="text-gray-300 mb-8">
+                        Call us now to schedule your free window cleaning estimate. Fast, friendly, and hassle-free!
+                    </p>
+                    <a href="tel:+18133124071"
+                        class="px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium rounded-lg transition duration-300">
+                        <i class="fas fa-phone mr-2"></i> Call Now
+                    </a>
+                </div>
+
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300">
+                    &copy; 2023 Sunny Side Window Washing. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal"
+        class="hs-overlay hidden fixed top-0 left-0 right-0 z-[60] h-full w-full overflow-x-hidden overflow-y-auto">
+        <div
+            class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+            <div class="relative flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-xl">
+                <div class="p-4 sm:p-10 text-center overflow-y-auto">
+                    <span
+                        class="mb-4 inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-green-100 bg-green-200 dark:bg-green-700 dark:border-green-600 text-green-500 dark:text-green-300">
+                        <i class="fas fa-check text-3xl"></i>
+                    </span>
+                    <h3 class="mb-2 text-2xl font-bold text-gray-800 dark:text-gray-200">
+                        Message Sent!
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400">
+                        Thank you for contacting Sunny Side Window Washing. We've received your message and will get back
+                        to you within 24 hours.
+                    </p>
+                    <div class="mt-6 flex justify-center gap-x-4">
+                        <button type="button"
+                            class="hs-overlay-close py-2 px-4 bg-primary-600 hover:bg-primary-700 border border-transparent rounded-lg text-white font-medium">
+                            Dismiss
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+
+        document.getElementById('close-mobile-menu').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function () {
+                toggleTheme();
+            });
+        }
+
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', function () {
+                toggleTheme();
+            });
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+
+        // Navigation link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', function () {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary-600', 'dark:text-primary-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-primary-600', 'dark:text-primary-400');
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Here you would typically handle form submission via AJAX
+            // For demo purposes, we'll just show the success modal
+
+            // Reset form
+            this.reset();
+
+            // Show success modal
+            const successModal = new HSOverlay(document.getElementById('success-modal'));
+            successModal.show();
+        });
+
+        // Initialize Preline components
+        window.HSOverlay = window.HSOverlay || {};
+        window.addEventListener('load', function () {
+            // Initialize all HSOverlay instances
+            document.querySelectorAll('.hs-overlay').forEach(function (el) {
+                new HSOverlay(el);
+            });
+        });
+    </script>
+</body>
+
 </html>
